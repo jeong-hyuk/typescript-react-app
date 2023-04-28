@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Tail() {
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const toggleMenu = (): void => {
+    setToggle((cur: boolean) => !cur);
+  };
+
   return (
     <nav className="w-auto pl-10 pr-10 bg-slate-100">
       <div className="flex justify-between py-5">
@@ -34,7 +40,7 @@ export default function Tail() {
         </a>
         {/* 모바일 메뉴 파트 */}
         <div className="md:hidden flex items-center">
-          <button>
+          <button onClick={toggleMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -48,7 +54,7 @@ export default function Tail() {
         </div>
       </div>
       {/* 모바일 토글 파트 */}
-      <div className="md:hidden py-3">
+      <div className={toggle ? "md:hidden py-3" : "hidden py-3"}>
         <a href="#" className="block py-2 px-4 hover:bg-slate-200">
           Menu1
         </a>
