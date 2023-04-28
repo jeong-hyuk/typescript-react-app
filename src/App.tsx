@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
-
-import Todo from "./components/Todo";
+import Header from "./components/Header";
+import Section from "./components/Section";
 
 function App() {
   return (
     <div className="App">
-      <Todo />
+      <Header />
+      <Section color="red" />
     </div>
   );
 }
