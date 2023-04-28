@@ -3,10 +3,15 @@ import React, { useRef } from "react";
 export default function ChangeColor() {
   const inputRef = useRef<HTMLInputElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
+  const varRef = useRef<String>("");
 
   const handleColor = (): void => {
     if (divRef.current !== null && inputRef.current != null) {
       divRef.current.style.backgroundColor = inputRef.current.value;
+
+      varRef.current = inputRef.current.value;
+      console.log(varRef.current);
+
       inputRef.current.value = "";
     }
   };
